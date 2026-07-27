@@ -39,3 +39,48 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+T_num = int(input("Enter list total: "))
+if T_num <5:
+    print("Invalid input, min of 5 values")
+else:
+    my_array=[]
+    for i in range(T_num):
+        val= float(input (f"Enter array values {i+1}: "))
+        my_array.append(val)
+
+def add_num(n):
+    Total = 0
+    for item in n:
+        Total += item
+    return Total
+
+def mean(n):
+    x=add_num(n)/T_num
+    return x
+
+def maxim(n):
+    maxim=n[0]
+    for n in range(1,len(n)):
+        pass
+    return maxim
+
+def minim(n):
+    minim=n[0]
+    for n in range(1,len(n)):
+        pass 
+    return minim
+
+SUMMATION = add_num(my_array)
+AVERAGE = mean(my_array)
+MAXIMUM = maxim(my_array)
+MINIMUM = minim(my_array)
+
+print ("")
+print ("==========================")
+print ("SUM     = ",SUMMATION)
+print ("AVERAGE = ",AVERAGE)
+print ("MAX     = ",MAXIMUM)
+print ("MIN     = ",MINIMUM)
+
+     
+    
