@@ -45,3 +45,44 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+#from operator import is_none
+
+
+def get_grade(n):
+        if n<0 or n>100:
+             return None
+         
+        elif n>=80:
+            return "A"
+        
+        elif 70<=n<=79:
+            return "B"
+        
+        elif 60<=n<=69:
+            return "C"
+        
+        elif 50<=n<=59:
+            return "D"
+        
+        else:
+            return "F"
+
+number = float (input("Enter score: "))
+final_grade=get_grade(number)
+if final_grade is None:
+    print ("Invalid input, try again.")
+
+elif final_grade == "A":
+    print("GRADE: A 'EXCELLENT'")
+
+elif final_grade == "B":
+    print("GRADE: B 'VERY GOOD'")
+
+elif final_grade == "C":
+    print("GRADE: C 'GOOD'")
+
+elif final_grade == "D":
+    print("GRADE: D 'PASS'")
+
+elif final_grade == "F":
+    print("GRADE: F 'FAIL'")  
