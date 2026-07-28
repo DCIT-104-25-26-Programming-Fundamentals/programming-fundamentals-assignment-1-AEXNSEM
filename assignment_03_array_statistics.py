@@ -45,8 +45,12 @@ if T_num <5:
 else:
     my_array=[]
     for i in range(T_num):
+       val= float(input (f"Enter array values {i+1}: "))
+    while val <= 0:
+        print ("Invalid input, only values > 0")
         val= float(input (f"Enter array values {i+1}: "))
-        my_array.append(val)
+    my_array.append(val)
+     
 
 def add_num(n):
     Total = 0
