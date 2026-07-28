@@ -90,3 +90,128 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def add_student():
+    print("\n--- Add Student ---")
+    name = input("Student name: ")
+    student_id = input("Student ID: ")
+    
+    # Initialize a list to hold the scores
+    scores_list = []
+    
+    num_scores = int(input("How many scores? "))
+    
+    # Collect scores one by one
+    for i in range(1, num_scores + 1):
+        score = float(input("Enter score " + str(i) + ": "))
+        scores_list.append(score)
+        
+    # Create the student dictionary
+    new_student = {
+        "name": name,
+        "id": student_id,
+        "scores": scores_list
+    }
+    
+    # Add the dictionary to our global database list
+    student_database.append(new_student)
+    print("Student \"" + name + "\" added successfully.")
+
+
+
+
+def display_all_students():
+    print("\n--- Display All Students ---")
+    
+    # Check if the list is empty
+    if len(student_database) == 0:
+        print("No student records found. Please add a student first.")
+        return
+        
+    print("------------------------------------------------------------")
+    print("Name           ID          Scores               Average")
+    print("------------------------------------------------------------")
+    
+    for student in student_database:
+        # Calculate the average
+        total = sum(student["scores"])
+        count = len(student["scores"])
+        
+        if count > 0:
+            avg = round(total / count, 2)
+        else:
+            avg = 0.0
+            
+        # Convert list of scores to a readable string manually
+        scores_str = ""
+        for s in student["scores"]:
+            scores_str += str(int(s)) + ", "
+        scores_str = scores_str[:-2] # Strip off the last trailing comma and space
+        
+        # Simple spacing using tabs or spaces for basic alignment
+        print(student["name"], "   ", student["id"], "   ", scores_str, "       ", avg)
+        
+    print("------------------------------------------------------------")
+
+
+
+
+def calculate_specific_average():
+    print("\n--- Calculate Average Score ---")
+    search_id = input("Enter student ID: ")
+    
+    # Variable to track if we found the student
+    found = False
+    
+    for student in student_database:
+        if student["id"] == search_id:
+            found = True
+            
+            # Calculate average
+            total = sum(student["scores"])
+            count = len(student["scores"])
+            
+            if count > 0:
+                avg = round(total / count, 2)
+            else:
+                avg = 0.0
+                
+            print(student["name"] + "'s average score: " + str(avg))
+            break # Exit loop early since IDs should be unique
+            
+    if found == False:
+        print("Error: Student ID " + search_id + " not found.")
+
+
+
+
+def main_menu():
+    # Loop indefinitely until the user chooses option 4
+    while True:
+        print("\n================================")
+        print("   STUDENT RECORD SYSTEM MENU")
+        print("================================")
+        print("1. Add student")
+        print("2. Display all students")
+        print("3. Calculate average score")
+        print("4. Quit")
+        
+        choice = input("Enter your choice (1-4): ")
+        
+        if choice == "1":
+            add_student()
+        elif choice == "2":
+            display_all_students()
+        elif choice == "3":
+            calculate_specific_average()
+        elif choice == "4":
+            print("Thank you for using the system. Goodbye!")
+            break # Breaks the while loop to end the program
+        else:
+            print("Invalid choice! Please enter a number between 1 and 4.")
+
+
+
+
+# --- Run Program ---
+if __name__ == "__main__":
+    main_menu()

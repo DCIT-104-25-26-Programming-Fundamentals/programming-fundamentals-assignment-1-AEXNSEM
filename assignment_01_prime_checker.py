@@ -49,7 +49,7 @@ def checkprime(n):
 
 number = int (input ("Enter a number: "))
 if checkprime(number) is True:
-    print ("is a prime number")
+    print (number,"is a prime number")
 else:
     print (number,"is NOT a prime number")
 
