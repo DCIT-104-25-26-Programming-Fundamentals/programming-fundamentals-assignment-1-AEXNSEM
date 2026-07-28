@@ -45,11 +45,11 @@ if T_num <5:
 else:
     my_array=[]
     for i in range(T_num):
-       val= float(input (f"Enter array values {i+1}: "))
-    while val <= 0:
-        print ("Invalid input, only values > 0")
         val= float(input (f"Enter array values {i+1}: "))
-    my_array.append(val)
+        while val <= 0:
+            print ("Invalid input, only values > 0")
+            val= float(input (f"Enter array values {i+1}: "))
+        my_array.append(val)
      
 
 def add_num(n):
@@ -64,14 +64,16 @@ def mean(n):
 
 def maxim(n):
     maxim=n[0]
-    for n in range(1,len(n)):
-        pass
+    for i in range(1,len(n)):
+        if n[i]>maxim:
+            maxim = n[i]
     return maxim
 
 def minim(n):
     minim=n[0]
-    for n in range(1,len(n)):
-        pass 
+    for i in range(1,len(n)):
+        if n[i]<minim:
+            minim = n[i]
     return minim
 
 SUMMATION = add_num(my_array)
